@@ -12,11 +12,6 @@ import Footer from "./components/Footer/Footer"
 
 
 
-
-
-
-
-
 const App = () => {
   useEffect(() => {
     AOS.init(
@@ -31,7 +26,6 @@ const App = () => {
   })
   return (
     <div className="bg-white duration-200 overflow-x-hidden">
-      <Navbar />
       <Home />
       <Services />
       <Banner />

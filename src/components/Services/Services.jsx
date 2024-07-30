@@ -30,7 +30,6 @@ const ServicesData = [
 const Services = () => {
     return (
         <>
-            <span></span>
             <div className="py-10">
                 <div className="container">
                     {/* Heading section  */}
@@ -45,8 +44,8 @@ const Services = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14 md:gap-5 place-items-center">
                         {ServicesData.map((service) => (
                             <div
-                                data-aos="fade-up"
-                                data-aos-delay={service.aosDelay}
+                                data-aos='fade-up'
+                                data-aos-delay={service.aosDelay} 
                                 className="rounded-2xl bg-white hover:bg-primary hover:text-white relative shadow-xl duration-high group max-w-[300px]"
                             >
                                 <div className="h-[122px]">
