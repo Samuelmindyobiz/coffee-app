@@ -19,9 +19,8 @@ const Home = () => {
                         <div className='bg-gradient-to-r from-primary to-secondary absolute top-10 left-10 p-3 rounded-xl'><h1>Hey Coder</h1></div>
                         <div className='bg-gradient-to-r from-primary to-secondary absolute bottom-10 right-10 p-3 rounded-xl'><h1>Best Coffee</h1></div>
                     </div>
-
-
                 </div>
+                <span id='services'></span>
             </div>
         </div>
     )

@@ -6,6 +6,11 @@ import Navbar from "./components/Navbar/Navbar"
 import Home from "./components/Home/Home"
 import Services from "./components/Services/Services.jsx"
 import Banner from "./components/Banner/Banner.jsx"
+import AppStore from "./components/AppStore/AppStore.jsx"
+import Testimonials from "./components/Testimonials/Testimonials"
+import Footer from "./components/Footer/Footer"
+
+
 
 
 
@@ -25,11 +30,14 @@ const App = () => {
 
   })
   return (
-    <div className='overflow-x-hidden'>
+    <div className="bg-white duration-200 overflow-x-hidden">
       <Navbar />
       <Home />
       <Services />
       <Banner />
+      <AppStore />
+      <Testimonials />
+      <Footer />
     </div>
   )
 }
