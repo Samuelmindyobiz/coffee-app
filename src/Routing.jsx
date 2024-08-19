@@ -19,7 +19,7 @@ const Routing = () => {
             <Routes>
                 <Route path='/' element={<App />} />
                 <Route path='/services' element={<Services />} />
-                <Route path='/about' element={<Banner />} />
+
                 <Route path='/app-store' element={<AppStore />} />
                 <Route path='/testimonials' element={<Testimonials />} />
                 <Route path='/signup' element={<SignUp />} />

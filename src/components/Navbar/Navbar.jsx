@@ -13,7 +13,7 @@ const Menus = [
     {
         id: 3,
         name: "About",
-        link: "/about",
+        link: "/#about",
     },
 ];
 
@@ -47,14 +47,12 @@ const Navbar = () => {
                             <Link to="/favorites" className='text-xl px-4 py-2 text-white/70 hover:text-white duration-200'>
                                 <FaHeart />
                             </Link>
-                            <button className='bg-primary/70 px-4 py-2 rounded-full hover:scale-105 duration-200 flex items-center gap-3'>
-                                Order <FaCoffee className='text-xl cursor-pointer' />
-                            </button>
+
                             <Link to="/cart" className='relative flex items-center text-white hover:text-gray-300'>
                                 <FaShoppingCart className='text-xl' />
                                 {cart.items.length > 0 && (
                                     <span className='absolute top-0 right-0 bg-red-600 text-white text-xs rounded-full px-2'>
-                                        {cart.items.length} - ${cart.totalPrice.toFixed(2)}
+                                        {cart.items.length}
                                     </span>
                                 )}
                             </Link>

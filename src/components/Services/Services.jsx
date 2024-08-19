@@ -1,25 +1,45 @@
 import React from 'react';
-import Img2 from '../../assets/cup2.webp';
+
 import { useCart } from '../../contexts/CartContext';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { useState, useEffect } from 'react'
+import axios from 'axios';
 
-const ServicesData = [
-    { id: 1, img: Img2, name: "Espresso", price: 5.99, description: "Delicious Espresso" },
-    { id: 2, img: Img2, name: "Americano", price: 4.99, description: "Rich Americano" },
-    { id: 3, img: Img2, name: "Cappuccino", price: 3.99, description: "Creamy Cappuccino" },
-];
+
+
 
 const Services = () => {
+    const [services, setServices] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
+
     const { addItemToCart, addToFavorites, getFavoriteItems } = useCart();
-    const favoriteItems = getFavoriteItems(ServicesData);
+    const favoriteItems = getFavoriteItems(services);
 
     const handleAddToCart = (service) => {
-        addItemToCart({ ...service, quantity: 1 }); // Adjust as needed for quantity
+        addItemToCart({ ...service, quantity: 1 });
     };
 
     const handleToggleFavorite = (item) => {
         addToFavorites(item);
     };
+
+    const fetchServices = async () => {
+        try {
+            const response = await axios.get('http://localhost:5001/api/products');
+            setServices(response.data);
+            setLoading(false);
+        } catch (err) {
+            setError(err.message);
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchServices()
+    }, [])
+
+
 
     return (
         <div className="py-10">
@@ -29,10 +49,10 @@ const Services = () => {
                     <p className="text-gray-600 mt-4">Discover our exclusive range of coffees</p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14 md:gap-5 place-items-center">
-                    {ServicesData.map((service) => (
-                        <div key={service.id} className="rounded-2xl bg-white hover:bg-primary hover:text-white relative shadow-xl duration-high group max-w-[300px]">
+                    {services.length > 0 && services.map((service) => (
+                        <div key={service._id} className="rounded-2xl bg-white hover:bg-primary hover:text-white relative shadow-xl duration-high group max-w-[300px]">
                             <div className="h-[122px]">
-                                <img src={service.img} alt={service.name} className="max-w-[200px] block mx-auto transform -translate-y-14 group-hover:scale-105 group-hover:rotate-6 duration-300" />
+                                <img src={`http://localhost:5001/${service.img}`} alt={service.name} className="max-w-[200px] block mx-auto transform -translate-y-14 group-hover:scale-105 group-hover:rotate-6 duration-300" />
                             </div>
                             <div className="p-4 text-center">
                                 <h1 className="text-xl font-bold">{service.name}</h1>
