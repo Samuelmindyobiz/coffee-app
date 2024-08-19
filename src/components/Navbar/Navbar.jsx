@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/coffee.svg';
-import { FaCoffee, FaShoppingCart, FaUser, FaSignInAlt, FaHeart } from 'react-icons/fa';
+import { FaShoppingCart, FaUser, FaSignInAlt, FaHeart } from 'react-icons/fa';
 import { useCart } from '../../contexts/CartContext';
 
 const Menus = [
@@ -24,14 +24,15 @@ const Navbar = () => {
         <div className='bg-gradient-to-r from-secondary to-secondary/90 text-white'>
             <div className="container py-2">
                 <div className="flex justify-between items-center gap-4">
-                    {/* Logo section */}
+
+
                     <div className=''>
                         <Link to="/" className='font-bold text-2xl sm:text-3xl flex justify-center items-center gap-2 tracking-wider font-cursive'>
                             <img src={Logo} alt="Logo" className='w-14' />
                             JES Coffee Shop
                         </Link>
                     </div>
-                    {/* Links and buttons section */}
+
                     <div className='flex justify-between items-center gap-4'>
                         <ul className='hidden sm:flex items-center gap-4'>
                             {Menus.map((data, index) => (
